@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nischal Ravichandran - IAM Engineer & Cloud Architect</title>
+    <title>Nischal Ravichandran - Principal IAM Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,184 +15,285 @@
         }
         
         :root {
-            --primary: #667eea;
-            --secondary: #764ba2;
-            --accent: #f093fb;
-            --dark: #2d3748;
-            --light: #f7fafc;
-            --gray: #718096;
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #3182ce;
+            --gold: #d69e2e;
+            --dark: #1a202c;
+            --gray-light: #edf2f7;
+            --gray-medium: #718096;
+            --white: #ffffff;
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
             color: var(--dark);
-            background: var(--light);
+            background: var(--white);
         }
         
-        /* Header */
-        header {
+        /* Navigation */
+        nav {
+            background: var(--white);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--gray-medium);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95em;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
+            color: var(--white);
+            padding: 120px 20px 100px;
             position: relative;
             overflow: hidden;
         }
         
-        header::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.03)"/></svg>');
+            background-size: 30px 30px;
         }
         
-        header .content {
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
             position: relative;
             z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
         }
         
-        h1 {
+        .hero h1 {
             font-size: 3.5em;
-            margin-bottom: 10px;
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 15px;
+            letter-spacing: -1px;
         }
         
-        .tagline {
-            font-size: 1.4em;
-            margin-bottom: 20px;
-            opacity: 0.95;
+        .hero .title {
+            font-size: 1.5em;
+            color: #90cdf4;
+            margin-bottom: 25px;
+            font-weight: 500;
         }
         
-        .contact-info {
+        .hero .subtitle {
+            font-size: 1.15em;
+            max-width: 700px;
+            line-height: 1.7;
+            opacity: 0.9;
+            margin-bottom: 35px;
+        }
+        
+        .hero .stats {
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            gap: 50px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 40px;
         }
         
-        .contact-info a {
-            color: white;
-            text-decoration: none;
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.85;
+            margin-top: 5px;
+        }
+        
+        .cta-buttons {
             display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.3s;
+            gap: 20px;
+            margin-top: 35px;
+            flex-wrap: wrap;
         }
         
-        .contact-info a:hover {
+        .btn {
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 1em;
+        }
+        
+        .btn-primary {
+            background: var(--gold);
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            background: #b7791f;
             transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(214, 158, 46, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.5);
         }
         
         /* Container */
         .container {
             max-width: 1200px;
-            margin: -50px auto 0;
-            padding: 0 20px 60px;
-            position: relative;
-            z-index: 2;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
-        /* Cards */
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 10px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+        /* Sections */
+        section {
+            padding: 80px 20px;
         }
         
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.1), 0 16px 32px rgba(0,0,0,0.15);
-        }
-        
-        h2 {
+        .section-title {
+            font-size: 2.5em;
+            font-weight: 700;
             color: var(--primary);
-            font-size: 2em;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            margin-bottom: 15px;
+            text-align: center;
+            letter-spacing: -0.5px;
         }
         
-        h3 {
-            color: var(--secondary);
-            font-size: 1.5em;
-            margin-top: 25px;
-            margin-bottom: 12px;
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-medium);
+            font-size: 1.15em;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        /* Summary */
-        .summary {
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: var(--gray);
-        }
-        
-        /* Skills Grid */
-        .skills-grid {
+        /* Expertise Grid */
+        .expertise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
         
-        .skill-category {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary);
+        .expertise-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
         }
         
-        .skill-category h4 {
-            color: var(--dark);
-            margin-bottom: 10px;
-            font-size: 1.1em;
+        .expertise-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            border-color: var(--accent);
         }
         
-        .skill-category p {
-            color: var(--gray);
-            font-size: 0.95em;
-            line-height: 1.6;
+        .expertise-card h3 {
+            color: var(--primary);
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .expertise-card p {
+            color: var(--gray-medium);
+            line-height: 1.7;
         }
         
         /* Experience Timeline */
-        .experience {
+        .timeline {
             position: relative;
-            padding-left: 40px;
-            border-left: 3px solid var(--primary);
-            margin-top: 30px;
+            max-width: 900px;
+            margin: 50px auto;
         }
         
-        .experience-item {
-            margin-bottom: 40px;
+        .timeline-item {
             position: relative;
+            padding-left: 60px;
+            padding-bottom: 50px;
+            border-left: 2px solid #e2e8f0;
         }
         
-        .experience-item::before {
+        .timeline-item:last-child {
+            padding-bottom: 0;
+            border-left: none;
+        }
+        
+        .timeline-item::before {
             content: '';
             position: absolute;
-            left: -47px;
+            left: -9px;
             top: 0;
-            width: 15px;
-            height: 15px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
-            background: var(--primary);
-            border: 4px solid white;
-            box-shadow: 0 0 0 2px var(--primary);
+            background: var(--accent);
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 2px var(--accent);
         }
         
-        .job-header {
+        .timeline-content {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .timeline-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -198,263 +302,511 @@
             gap: 10px;
         }
         
-        .job-title {
+        .timeline-title {
             font-size: 1.3em;
-            color: var(--dark);
-            font-weight: 600;
-        }
-        
-        .company {
             color: var(--primary);
             font-weight: 600;
         }
         
-        .date {
-            color: var(--gray);
-            font-style: italic;
+        .timeline-company {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.1em;
         }
         
-        ul {
-            margin-left: 20px;
-            margin-top: 10px;
+        .timeline-date {
+            color: var(--gray-medium);
+            font-size: 0.95em;
         }
         
-        li {
-            margin-bottom: 8px;
-            color: var(--gray);
+        .timeline-content ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .timeline-content li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            color: var(--gray-medium);
+            line-height: 1.6;
+        }
+        
+        .timeline-content li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
         }
         
         /* Achievements */
-        .achievement {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            border-left: 4px solid #ff6b6b;
+        .achievements {
+            background: var(--gray-light);
         }
         
-        .achievement strong {
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .achievement-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+        }
+        
+        .achievement-card h4 {
+            color: var(--primary);
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .achievement-card p {
+            color: var(--gray-medium);
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .skill-group {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .skill-group h3 {
+            color: var(--primary);
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background: var(--gray-light);
             color: var(--dark);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
         }
         
         /* Certifications */
-        .cert-badges {
+        .cert-container {
             display: flex;
-            gap: 20px;
+            justify-content: center;
+            gap: 30px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 50px;
         }
         
-        .badge {
+        .cert-badge {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 12px 24px;
-            border-radius: 25px;
+            color: var(--white);
+            padding: 25px 40px;
+            border-radius: 8px;
+            text-align: center;
             font-weight: 600;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            font-size: 1.1em;
+            box-shadow: 0 10px 30px rgba(26, 54, 93, 0.3);
         }
         
-        /* Education */
-        .education-item {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--secondary);
+        /* Contact */
+        .contact {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .contact .section-title {
+            color: var(--white);
+        }
+        
+        .contact .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .contact-method {
+            text-align: center;
+        }
+        
+        .contact-method a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .contact-method a:hover {
+            color: #b7791f;
+        }
+        
+        .contact-method .label {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9em;
+            margin-bottom: 8px;
         }
         
         /* Footer */
         footer {
-            text-align: center;
-            padding: 40px 20px;
             background: var(--dark);
-            color: white;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 30px 20px;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5em; }
-            .tagline { font-size: 1.2em; }
-            .contact-info { flex-direction: column; align-items: center; }
-            .card { padding: 25px; }
-            .skills-grid { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+            .hero h1 { font-size: 2.5em; }
+            .hero .title { font-size: 1.2em; }
+            .hero .stats { justify-content: center; }
+            .section-title { font-size: 2em; }
+            .timeline-item { padding-left: 40px; }
+            .cta-buttons { flex-direction: column; }
+            .cta-buttons .btn { text-align: center; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="content">
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">NR</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
             <h1>Nischal Ravichandran</h1>
-            <div class="tagline">Principal IAM Engineer | Cloud Security Architect | Zero Trust Specialist</div>
-            <div class="contact-info">
-                <a href="tel:+17244670007">📞 +1 724-467-0007</a>
-                <a href="mailto:nischalravichandran@gmail.com">📧 nischalravichandran@gmail.com</a>
-                <a href="https://github.com/nischalravi" target="_blank">💻 GitHub</a>
-                <a href="https://linkedin.com/in/nischalravi" target="_blank">💼 LinkedIn</a>
+            <div class="title">Principal Identity & Access Management Engineer</div>
+            <div class="subtitle">
+                Transforming enterprise security through Zero Trust architecture, leading $5M+ IAM migrations, 
+                and architecting solutions for 565,000+ users across global operations.
             </div>
-        </div>
-    </header>
-
-    <div class="container">
-        <!-- Professional Summary -->
-        <div class="card">
-            <h2>👨‍💼 Professional Summary</h2>
-            <p class="summary">
-                Accomplished Identity and Access Management (IAM) Engineer with <strong>10 years</strong> of enterprise-level experience 
-                designing, implementing, and optimizing IAM solutions for complex, high-security environments. Proven 
-                expertise in leading large-scale IAM transformations, Zero Trust architecture implementations, and regulatory 
-                compliance initiatives. Currently managing <strong>565,000+ user accounts</strong> across <strong>4,400+ applications</strong> 
-                at Northeastern University with <strong>99.92% uptime</strong>.
-            </p>
-        </div>
-
-        <!-- Key Achievements -->
-        <div class="card">
-            <h2>🏆 Key Achievements</h2>
-            <div class="achievement">
-                <strong>Enterprise SSO Implementation:</strong> Led implementation of enterprise-wide SSO solution, improving user productivity and reducing password-related helpdesk tickets by 70%
-            </div>
-            <div class="achievement">
-                <strong>$5M+ Cloud Migration:</strong> Leading migration from Shibboleth to Microsoft EntraID with zero downtime for 565K+ users
-            </div>
-            <div class="achievement">
-                <strong>Zero Trust Architecture:</strong> Reduced security incidents by 45% and improved compliance audit scores by 30%
-            </div>
-            <div class="achievement">
-                <strong>Cost Optimization:</strong> Reduced IAM licensing costs by 35% through vendor consolidation and license optimization
-            </div>
-            <div class="achievement">
-                <strong>Automation Excellence:</strong> Reduced provisioning time from days to minutes, saving 2,000+ hours annually
-            </div>
-        </div>
-
-        <!-- Technical Skills -->
-        <div class="card">
-            <h2>🛠️ Technical Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>IAM Platforms</h4>
-                    <p>Microsoft EntraID, Shibboleth, Okta, Saviynt, CA SiteMinder, Ping Federate, Grouper</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Protocols & Standards</h4>
-                    <p>SAML 2.0, OAuth 2.0, OpenID Connect, LDAP, SCIM, JWT, Kerberos</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Directory Services</h4>
-                    <p>Active Directory, Azure AD, OpenLDAP, Apache Directory Server</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Development & Automation</h4>
-                    <p>Python, Groovy, PowerShell, REST APIs, Microsoft Graph, Unix Shell</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Cloud & Infrastructure</h4>
-                    <p>Azure, AWS, Apache Tomcat, WebLogic, IIS, Apache HTTP Server</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Security & Compliance</h4>
-                    <p>SOX, PCI-DSS, GDPR, NIST, ISO 27001, Zero Trust, RBAC, ABAC</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Experience -->
-        <div class="card">
-            <h2>💼 Professional Experience</h2>
             
-            <div class="experience">
-                <div class="experience-item">
-                    <div class="job-header">
-                        <div>
-                            <div class="job-title">Principal Identity & Access Management Engineer</div>
-                            <div class="company">Northeastern University</div>
-                        </div>
-                        <div class="date">Mar 2017 – Present | Boston, MA</div>
-                    </div>
-                    
-                    <h3>Strategic Leadership & Governance</h3>
-                    <ul>
-                        <li>Architected and implemented enterprise-wide IAM strategy supporting 565,000+ users with 99.92% availability</li>
-                        <li>Led Zero Trust security transformation, reducing security incidents by 45%</li>
-                        <li>Established IAM governance framework aligned with NIST and ISO 27001 standards</li>
-                        <li>Leading $5M+ migration to Microsoft EntraID for 50+ federally funded research centers</li>
-                    </ul>
-                    
-                    <h3>Technical Achievements</h3>
-                    <ul>
-                        <li>Designed federated identity solution using Azure EntraID, Shibboleth, and SAML 2.0 for 4,400+ applications</li>
-                        <li>Implemented automated user lifecycle management saving 2,000+ hours annually</li>
-                        <li>Developed custom integrations using Python and REST APIs for system automation</li>
-                        <li>Managed four-server LDAP cluster with fractional replication across US and UK operations</li>
-                    </ul>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Years Experience</span>
                 </div>
-
-                <div class="experience-item">
-                    <div class="job-header">
-                        <div>
-                            <div class="job-title">Identity & Access Management Engineer</div>
-                            <div class="company">Johnson Controls</div>
-                        </div>
-                        <div class="date">Apr 2016 – Feb 2017 | Milwaukee, WI</div>
-                    </div>
-                    <ul>
-                        <li>Configured CA SiteMinder policy servers for enterprise SSO supporting 30,000+ global users</li>
-                        <li>Implemented federation services enabling B2B partner integrations</li>
-                        <li>Designed RBAC policies aligned with principle of least privilege</li>
-                        <li>Improved system stability by 25% through root cause analysis and optimization</li>
-                    </ul>
+                <div class="stat">
+                    <span class="stat-number">565K+</span>
+                    <span class="stat-label">Users Managed</span>
                 </div>
-
-                <div class="experience-item">
-                    <div class="job-header">
-                        <div>
-                            <div class="job-title">Identity & Access Management Engineer</div>
-                            <div class="company">Comcast</div>
-                        </div>
-                        <div class="date">Sep 2015 – Mar 2016 | Westchester, PA</div>
-                    </div>
-                    <ul>
-                        <li>Deployed enterprise identity management infrastructure including WebLogic and Active Directory</li>
-                        <li>Performed advanced log analysis and troubleshooting for critical authentication issues</li>
-                        <li>Supported audit and compliance initiatives with comprehensive access reports</li>
-                    </ul>
+                <div class="stat">
+                    <span class="stat-number">4,400+</span>
+                    <span class="stat-label">Applications</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">99.92%</span>
+                    <span class="stat-label">Uptime</span>
                 </div>
             </div>
-        </div>
-
-        <!-- Certifications -->
-        <div class="card">
-            <h2>🎓 Certifications</h2>
-            <div class="cert-badges">
-                <div class="badge">CIAM - Certified Identity and Access Manager</div>
-                <div class="badge">CIST - Certified Identity and Security Technologist</div>
-            </div>
-        </div>
-
-        <!-- Education -->
-        <div class="card">
-            <h2>🎓 Education</h2>
-            <div class="education-item">
-                <strong>Master of Science in Cloud Computing</strong><br>
-                Northeastern University | Boston, MA | 2021 – 2023<br>
-                <em>Relevant: Cloud Security, Distributed Systems, Cryptography, Network Security</em>
-            </div>
-            <div class="education-item">
-                <strong>Master of Business Administration (MBA)</strong><br>
-                Indiana University of Pennsylvania | 2013 – 2015<br>
-                <em>Focus: Technology Management, Risk Management, Strategic Planning</em>
-            </div>
-            <div class="education-item">
-                <strong>Bachelor of Business Management</strong><br>
-                PES University | Bangalore, India | 2010 – 2013
+            
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="https://github.com/nischalravi" class="btn btn-secondary" target="_blank">View GitHub</a>
             </div>
         </div>
     </div>
 
+    <!-- About / Expertise -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Core Expertise</h2>
+            <p class="section-subtitle">
+                Specialized in enterprise IAM architecture, Zero Trust security, and regulatory compliance
+            </p>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>IAM Architecture</h3>
+                    <p>Designing and implementing enterprise-scale identity solutions with Zero Trust principles, RBAC/ABAC policies, and least privilege access controls for complex hybrid environments.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Cloud Migration</h3>
+                    <p>Leading $5M+ migration from legacy Shibboleth infrastructure to Microsoft EntraID, serving 565K+ users across US and UK operations with zero downtime.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Security & Compliance</h3>
+                    <p>Ensuring adherence to SOX, PCI-DSS, GDPR, and NIST frameworks through robust IAM governance, automated access reviews, and comprehensive audit trails.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Automation & Integration</h3>
+                    <p>Developing custom Python and PowerShell solutions for automated user lifecycle management, saving 2,000+ hours annually through intelligent automation.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Federation & SSO</h3>
+                    <p>Implementing federated identity solutions using SAML 2.0, OAuth 2.0, and OpenID Connect for seamless authentication across 4,400+ applications.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Strategic Leadership</h3>
+                    <p>Collaborating with C-level executives on security strategy, risk mitigation, and enterprise-wide IAM transformation initiatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Key Achievements</h2>
+            <p class="section-subtitle">
+                Delivering measurable impact through strategic IAM initiatives
+            </p>
+            
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <h4>70% Reduction</h4>
+                    <p>Decreased password-related helpdesk tickets through enterprise-wide SSO implementation</p>
+                </div>
+                <div class="achievement-card">
+                    <h4>45% Security Improvement</h4>
+                    <p>Reduced security incidents through Zero Trust architecture implementation</p>
+                </div>
+                <div class="achievement-card">
+                    <h4>$5M+ Project Leadership</h4>
+                    <p>Managing large-scale EntraID migration supporting 50+ federally funded research centers</p>
+                </div>
+                <div class="achievement-card">
+                    <h4>35% Cost Reduction</h4>
+                    <p>Optimized IAM licensing costs through strategic vendor consolidation</p>
+                </div>
+                <div class="achievement-card">
+                    <h4>2,000+ Hours Saved</h4>
+                    <p>Annual time savings through automated user lifecycle management</p>
+                </div>
+                <div class="achievement-card">
+                    <h4>100% SOX Compliance</h4>
+                    <p>Achieved perfect compliance in all IAM-related controls during annual audits</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">
+                A decade of enterprise IAM leadership across Fortune 500 companies and higher education
+            </p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-title">Principal IAM Engineer</div>
+                                <div class="timeline-company">Northeastern University</div>
+                            </div>
+                            <div class="timeline-date">Mar 2017 – Present</div>
+                        </div>
+                        <ul>
+                            <li>Architected enterprise-wide IAM strategy for 565,000+ users across 4,400+ applications</li>
+                            <li>Leading $5M+ migration to Microsoft EntraID with hybrid MFA strategy</li>
+                            <li>Achieved 99.92% authentication service uptime supporting 50+ research centers worth $296.3M</li>
+                            <li>Implemented Zero Trust architecture reducing security incidents by 45%</li>
+                            <li>Developed custom Python/PowerShell automation saving 2,000+ hours annually</li>
+                            <li>Managed four-server LDAP cluster with fractional replication across US and UK</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-title">IAM Engineer</div>
+                                <div class="timeline-company">Johnson Controls</div>
+                            </div>
+                            <div class="timeline-date">Apr 2016 – Feb 2017</div>
+                        </div>
+                        <ul>
+                            <li>Configured CA SiteMinder policy servers supporting 30,000+ global users</li>
+                            <li>Implemented federation services enabling secure B2B partner integrations</li>
+                            <li>Designed RBAC policies aligned with least privilege principles</li>
+                            <li>Improved system stability by 25% through root cause analysis</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-title">IAM Engineer</div>
+                                <div class="timeline-company">Comcast</div>
+                            </div>
+                            <div class="timeline-date">Sep 2015 – Mar 2016</div>
+                        </div>
+                        <ul>
+                            <li>Deployed enterprise identity management infrastructure with WebLogic and AD</li>
+                            <li>Performed advanced log analysis for critical authentication issues</li>
+                            <li>Supported SOX audit and compliance initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <p class="section-subtitle">
+                Comprehensive expertise across IAM platforms, protocols, and security frameworks
+            </p>
+            
+            <div class="skills-container">
+                <div class="skill-group">
+                    <h3>IAM Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Microsoft EntraID</span>
+                        <span class="skill-tag">Shibboleth</span>
+                        <span class="skill-tag">Okta</span>
+                        <span class="skill-tag">Saviynt</span>
+                        <span class="skill-tag">CA SiteMinder</span>
+                        <span class="skill-tag">Ping Federate</span>
+                        <span class="skill-tag">Grouper</span>
+                    </div>
+                </div>
+                
+                <div class="skill-group">
+                    <h3>Protocols & Standards</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SAML 2.0</span>
+                        <span class="skill-tag">OAuth 2.0</span>
+                        <span class="skill-tag">OpenID Connect</span>
+                        <span class="skill-tag">LDAP</span>
+                        <span class="skill-tag">SCIM</span>
+                        <span class="skill-tag">Kerberos</span>
+                    </div>
+                </div>
+                
+                <div class="skill-group">
+                    <h3>Directory Services</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Active Directory</span>
+                        <span class="skill-tag">Azure AD</span>
+                        <span class="skill-tag">OpenLDAP</span>
+                        <span class="skill-tag">Apache Directory</span>
+                    </div>
+                </div>
+                
+                <div class="skill-group">
+                    <h3>Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PowerShell</span>
+                        <span class="skill-tag">Groovy</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">Microsoft Graph</span>
+                        <span class="skill-tag">Bash</span>
+                    </div>
+                </div>
+                
+                <div class="skill-group">
+                    <h3>Cloud & Infrastructure</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Apache Tomcat</span>
+                        <span class="skill-tag">WebLogic</span>
+                        <span class="skill-tag">IIS</span>
+                    </div>
+                </div>
+                
+                <div class="skill-group">
+                    <h3>Security & Compliance</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Zero Trust</span>
+                        <span class="skill-tag">RBAC/ABAC</span>
+                        <span class="skill-tag">SOX</span>
+                        <span class="skill-tag">GDPR</span>
+                        <span class="skill-tag">NIST</span>
+                        <span class="skill-tag">ISO 27001</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cert-container">
+                <div class="cert-badge">CIAM<br><small style="opacity: 0.8;">Certified Identity and Access Manager</small></div>
+                <div class="cert-badge">CIST<br><small style="opacity: 0.8;">Certified Identity and Security Technologist</small></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle">
+                Open to consulting opportunities, speaking engagements, and strategic IAM initiatives
+            </p>
+            
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="label">Email</div>
+                    <a href="mailto:nischalravichandran@gmail.com">nischalravichandran@gmail.com</a>
+                </div>
+                <div class="contact-method">
+                    <div class="label">Phone</div>
+                    <a href="tel:+17244670007">+1 724-467-0007</a>
+                </div>
+                <div class="contact-method">
+                    <div class="label">GitHub</div>
+                    <a href="https://github.com/nischalravi" target="_blank">github.com/nischalravi</a>
+                </div>
+                <div class="contact-method">
+                    <div class="label">LinkedIn</div>
+                    <a href="https://linkedin.com/in/nischalravi" target="_blank">linkedin.com/in/nischalravi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Nischal Ravichandran | Hosted on UGREEN DXP4800 PLUS NAS</p>
-        <p style="margin-top: 10px; opacity: 0.7;">Built with passion for security and automation</p>
+        <p>&copy; 2026 Nischal Ravichandran. All rights reserved.</p>
+        <p style="margin-top: 8px; font-size: 0.9em;">Boston, MA • Self-hosted on UGREEN NAS</p>
     </footer>
 </body>
 </html>
